@@ -17,22 +17,32 @@ import (
 func robotRunLoop(gopigo3 *g.Driver, lightSensor *aio.GroveLightSensorDriver, soundSensor *aio.GroveSoundSensorDriver) {
 	for {
 
-		soundSensorVal, soundSensorErr := soundSensor.Read()
-
-		if soundSensorErr != nil {
-			fmt.Errorf("Error reading sensor %+v", soundSensorErr)
-		}
-		fmt.Println("Sound Value is ", soundSensorVal)
-
-		//sensorVal, err := lightSensor.Read()
-		//if err != nil {
-		//	fmt.Errorf("Error reading sensor %+v", err)
+		//soundSensorVal, soundSensorErr := soundSensor.Read()
+		//
+		//if soundSensorErr != nil {
+		//	fmt.Errorf("Error reading sensor %+v", soundSensorErr)
 		//}
-		//fmt.Println("Light Value is ", sensorVal)
+		//fmt.Println("Sound Value is ", soundSensorVal)
 
-		//if sensorVal > 1000 {
+		lightSensorVal, lightSensorErr := lightSensor.Read()
+
+		if lightSensorErr != nil {
+			fmt.Errorf("Error reading sensor %+v", lightSensorErr)
+		}
+
+		fmt.Println("Light Value is ", lightSensorVal)
+
+		if lightSensorVal > 1000 {
+			_ = gopigo3.SetMotorDps(g.MOTOR_LEFT, 0)
+			_ = gopigo3.SetMotorDps(g.MOTOR_RIGHT, 0)
+		} else {
+			_ = gopigo3.SetMotorDps(g.MOTOR_LEFT, -150)
+			_ = gopigo3.SetMotorDps(g.MOTOR_RIGHT, -150)
+		}
+
+		//if lightSensorVal > 1000 {
 		//	//_ = gopigo3.SetLED(g.LED_EYE_RIGHT, 0x00, 0x00, uint8(0xFF))
-		//	result, err := soundSensor.Read()
+		//	result, lightSensorErr := soundSensor.Read()
 		//} else {
 		//	//_ = gopigo3.SetLED(g.LED_EYE_RIGHT, 0x00, 0x00, uint8(0x00))
 		//}
