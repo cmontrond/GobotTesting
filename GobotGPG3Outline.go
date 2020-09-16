@@ -22,7 +22,7 @@ func robotRunLoop(gopigo3 *g.Driver, lightSensor *aio.GroveLightSensorDriver) {
 		}
 		fmt.Println("Light Value is ", sensorVal)
 
-		if sensorVal > 100 {
+		if sensorVal > 1000 {
 			_ = gopigo3.SetLED(g.LED_EYE_RIGHT, 0x00, 0x00, uint8(0xFF))
 		} else {
 			_ = gopigo3.SetLED(g.LED_EYE_RIGHT, 0x00, 0x00, uint8(0x00))
