@@ -14,19 +14,28 @@ import (
 //function in that new thread. Do all of your work in this function and
 //in other functions that this function calls. don't read from sensors or
 //use actuators frmo main or you will get a panic.
-func robotRunLoop(gopigo3 *g.Driver, lightSensor *aio.GroveLightSensorDriver) {
+func robotRunLoop(gopigo3 *g.Driver, lightSensor *aio.GroveLightSensorDriver, soundSensor *aio.GroveSoundSensorDriver) {
 	for {
-		sensorVal, err := lightSensor.Read()
-		if err != nil {
-			fmt.Errorf("Error reading sensor %+v", err)
-		}
-		fmt.Println("Light Value is ", sensorVal)
 
-		if sensorVal > 1000 {
-			_ = gopigo3.SetLED(g.LED_EYE_RIGHT, 0x00, 0x00, uint8(0xFF))
-		} else {
-			_ = gopigo3.SetLED(g.LED_EYE_RIGHT, 0x00, 0x00, uint8(0x00))
+		soundSensorVal, soundSensorErr := soundSensor.Read()
+
+		if soundSensorErr != nil {
+			fmt.Errorf("Error reading sensor %+v", soundSensorErr)
 		}
+		fmt.Println("Light Value is ", soundSensorVal)
+
+		//sensorVal, err := lightSensor.Read()
+		//if err != nil {
+		//	fmt.Errorf("Error reading sensor %+v", err)
+		//}
+		//fmt.Println("Light Value is ", sensorVal)
+
+		//if sensorVal > 1000 {
+		//	//_ = gopigo3.SetLED(g.LED_EYE_RIGHT, 0x00, 0x00, uint8(0xFF))
+		//	result, err := soundSensor.Read()
+		//} else {
+		//	//_ = gopigo3.SetLED(g.LED_EYE_RIGHT, 0x00, 0x00, uint8(0x00))
+		//}
 
 		time.Sleep(time.Second)
 	}
@@ -38,6 +47,7 @@ func main() {
 	raspiAdaptor := raspi.NewAdaptor()
 	gopigo3 := g.NewDriver(raspiAdaptor)
 	lightSensor := aio.NewGroveLightSensorDriver(gopigo3, "AD_2_1") //AnalogDigital Port 1 is "AD_1_1" this is port 2
+	soundSensor := aio.NewGroveSoundSensorDriver(gopigo3, "AD_1_1")
 	//end create hardware drivers
 
 	//here we create an anonymous function assigned to a local variable
@@ -45,7 +55,7 @@ func main() {
 	//I'm calling my robot main loop here. Pass any of the variables we created
 	//above to that function if you need them
 	mainRobotFunc := func() {
-		robotRunLoop(gopigo3, lightSensor)
+		robotRunLoop(gopigo3, lightSensor, soundSensor)
 	}
 
 	//this is the crux of the gobot framework. The factory function to create a new robot

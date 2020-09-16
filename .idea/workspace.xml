@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1719bbcb-e6bd-44c0-a4f8-f09433b94d59" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GobotGPG3Outline.go" beforeDir="false" afterPath="$PROJECT_DIR$/GobotGPG3Outline.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -61,7 +62,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600275793216</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="blink led on sensor value, value higher">
+      <created>1600276251486</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1600276251486</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -69,19 +77,20 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="blink led on sensor value" />
-    <option name="LAST_COMMIT_MESSAGE" value="blink led on sensor value" />
+    <MESSAGE value="blink led on sensor value, value higher" />
+    <option name="LAST_COMMIT_MESSAGE" value="blink led on sensor value, value higher" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
   </component>
   <component name="WindowStateProjectService">
-    <state x="393" y="0" key="CommitChangelistDialog2" timestamp="1600275792740">
+    <state x="393" y="0" key="CommitChangelistDialog2" timestamp="1600276251107">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="393" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1600275792740" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1600275794791">
+    <state x="393" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1600276251107" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1600276252922">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1600275794791" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1600276252922" />
   </component>
 </project>
