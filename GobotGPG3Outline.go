@@ -22,7 +22,7 @@ func robotRunLoop(gopigo3 *g.Driver, lightSensor *aio.GroveLightSensorDriver, so
 		if soundSensorErr != nil {
 			fmt.Errorf("Error reading sensor %+v", soundSensorErr)
 		}
-		fmt.Println("Light Value is ", soundSensorVal)
+		fmt.Println("Sound Value is ", soundSensorVal)
 
 		//sensorVal, err := lightSensor.Read()
 		//if err != nil {
